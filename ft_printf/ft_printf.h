@@ -6,7 +6,7 @@
 /*   By: luaraujo <luaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 16:44:09 by luaraujo          #+#    #+#             */
-/*   Updated: 2022/11/25 16:49:35 by luaraujo         ###   ########.fr       */
+/*   Updated: 2022/11/25 18:04:42 by luaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@
 #include "../libft/lift.h"
 #include <stdarg.h>
 
-int	ft_printf(const char *, ...);
+int	ft_printf(const char *str, ...);
 
 #endif

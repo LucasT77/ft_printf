@@ -6,13 +6,14 @@
 /*   By: luaraujo <luaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 15:58:32 by luaraujo          #+#    #+#             */
-/*   Updated: 2022/11/25 17:53:01 by luaraujo         ###   ########.fr       */
+/*   Updated: 2022/11/25 18:04:37 by luaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_printf(const char *, ...)
+int ft_printf(const char *str, ...)
 {
-
+	va_list	args;
+	va_start(args, str);
 }
