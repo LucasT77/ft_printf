@@ -28,7 +28,7 @@ static size_t	checktype(va_list args, char type)
 	else if (type == 'u')
 		length += printundec(va_arg(args, unsigned int));
 	else if (type == 'x' || type == 'X')
-		length += printhex(va_arg(args, int), type);
+		length += printhex(va_arg(args, unsigned int), type);
 	else if (type == '%')
 		length += printchr('%');
 	return (length);
