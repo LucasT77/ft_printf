@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-static size_t	checktype(va_list args, char type)
+static int	checktype(va_list args, char type)
 {
 	int	length;
 
@@ -22,7 +22,7 @@ static size_t	checktype(va_list args, char type)
 	else if (type == 's')
 		length += printstr(va_arg(args, char *));
 	else if (type == 'p')
-		length += printpointer(va_arg(args, void*));
+		length += printpointer(va_arg(args, unsigned long long));
 	else if (type == 'd' || type == 'i')
 		length += printdec(va_arg(args, int));
 	else if (type == 'u')
@@ -34,12 +34,12 @@ static size_t	checktype(va_list args, char type)
 	return (length);
 }
 
-int ft_printf(const char *str, ...)
+int	ft_printf(const char *str, ...)
 {
-	size_t	i,
-	size_t	length;
-	
+	int	i;
+	int	length;
 	va_list	args;
+
 	va_start(args, str);
 	i = 0;
 	length = 0;
@@ -47,7 +47,7 @@ int ft_printf(const char *str, ...)
 	{
 		if (str[i] == '%')
 		{
-			length += checktype(args, str[i + 1])
+			length += checktype(args, str[i + 1]);
 			i += 2;
 			continue ;
 		}
@@ -56,3 +56,23 @@ int ft_printf(const char *str, ...)
 		i++;
 	}
 }
+
+/*
+int	main(void)
+{
+	int		n;
+	char	c;
+
+	n = 10;
+	c = 'L';
+	ft_printf("char: %c\n", c);
+	ft_printf("char: %c\n", c);
+	ft_printf("char: %c\n", c);
+	ft_printf("char: %c\n", c);
+	ft_printf("char: %c\n", c);
+	ft_printf("char: %c\n", c);
+	ft_printf("char: %c\n", c);
+	ft_printf("char: %c\n", c);
+	ft_printf("char: %c\n", c);
+}
+*/

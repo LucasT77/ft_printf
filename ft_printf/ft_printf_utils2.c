@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf_utils2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luaraujo <luaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/25 16:44:09 by luaraujo          #+#    #+#             */
-/*   Updated: 2022/11/28 18:31:17 by luaraujo         ###   ########.fr       */
+/*   Created: 2022/11/28 18:17:31 by luaraujo          #+#    #+#             */
+/*   Updated: 2022/11/28 18:31:27 by luaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include "../libft/lift.h"
-# include <stdarg.h>
+int	printchr(char c)
+{
+	ft_putchar_fd(c, 1)
+	return (1);
+}
 
-int	ft_printf(const char *str, ...);
-int	printdec(int n);
-int	printundec(unsigned int n);
-int	printhex(unsigned int n, char type);
-int	numlength(long long int n);
-int	printchr(char c);
-int	printstr(char *str);
-int	printpointer(unsigned long long ptr);
+int	printstr(char *str)
+{
+	ft_putstr_fd(str, 1);
+	return (ft_strlen(str));
+}
 
-#endif
+int	printpointer(unsigned long long ptr)
+{
+	int	length;
+
+	ft_putstr_fd("0x", 1);
+	length = printhex(ptr);
+	return (length);
+}
