@@ -42,7 +42,7 @@ int	printundec(unsigned int n)
 int	printhex(unsigned int n, char type)
 {
 	char			*hex;
-	int			length;
+	int				length;
 	unsigned int	aux;
 	int				i;
 

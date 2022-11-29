@@ -12,13 +12,34 @@
 
 #include "ft_printf.h"
 
+static int	printchr(char c)
+{
+	ft_putchar_fd(c, 1);
+	return (1);
+}
+
+static int	printstr(char *str)
+{
+	ft_putstr_fd(str, 1);
+	return (ft_strlen(str));
+}
+
+static int	printpointer(unsigned long long ptr)
+{
+	int	length;
+
+	ft_putstr_fd("0x", 1);
+	length = printhex(ptr, 'x');
+	return (length);
+}
+
 static int	checktype(va_list args, char type)
 {
 	int	length;
 
 	length = 0;
 	if (type == 'c')
-		length += printchr(va_arg(args, char));
+		length += printchr(va_arg(args, int));
 	else if (type == 's')
 		length += printstr(va_arg(args, char *));
 	else if (type == 'p')
@@ -36,8 +57,8 @@ static int	checktype(va_list args, char type)
 
 int	ft_printf(const char *str, ...)
 {
-	int	i;
-	int	length;
+	int		i;
+	int		length;
 	va_list	args;
 
 	va_start(args, str);
@@ -51,28 +72,41 @@ int	ft_printf(const char *str, ...)
 			i += 2;
 			continue ;
 		}
-		ft_putchar(str[i], 1);
+		ft_putchar_fd(str[i], 1);
 		length++;
 		i++;
 	}
+	return (length);
 }
 
-/*
+
 int	main(void)
 {
-	int		n;
-	char	c;
+	int				n;
+	char			c;
+	char			*str;
+	unsigned int	un;
 
-	n = 10;
+	n = -10;
+	un = 9;
+	str = "Hello";
 	c = 'L';
-	ft_printf("char: %c\n", c);
-	ft_printf("char: %c\n", c);
-	ft_printf("char: %c\n", c);
-	ft_printf("char: %c\n", c);
-	ft_printf("char: %c\n", c);
-	ft_printf("char: %c\n", c);
-	ft_printf("char: %c\n", c);
-	ft_printf("char: %c\n", c);
-	ft_printf("char: %c\n", c);
+	printf("char: %c\n", c);
+	ft_printf("my char: %c\n", c);
+	printf("string: %s\n", str);
+	ft_printf("my string: %s\n", str);
+	printf("pointer: %p\n", (void *)&n);
+	ft_printf("my pointer: %p\n", (void *)&n);
+	printf("decimal: %d\n", n);
+	ft_printf("my decimal: %d\n", n);
+	printf("int: %i\n", n);
+	ft_printf("my int: %i\n", n);
+	printf("unsigned: %u\n", un);
+	ft_printf("my unsigned: %u\n", un);
+	printf("char: %x\n", 590);
+	ft_printf("my char: %x\n", 590);
+	printf("char: %X\n", 590);
+	ft_printf("my char: %X\n", 590);
+	printf("percent: %%\n");
+	ft_printf("my percent: %%\n");
 }
-*/

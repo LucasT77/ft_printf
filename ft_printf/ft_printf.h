@@ -6,23 +6,21 @@
 /*   By: luaraujo <luaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 16:44:09 by luaraujo          #+#    #+#             */
-/*   Updated: 2022/11/28 18:31:17 by luaraujo         ###   ########.fr       */
+/*   Updated: 2022/11/29 15:48:58 by luaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "../libft/lift.h"
+# include "../libft/libft.h"
 # include <stdarg.h>
+# include <stdio.h>
 
 int	ft_printf(const char *str, ...);
 int	printdec(int n);
 int	printundec(unsigned int n);
 int	printhex(unsigned int n, char type);
 int	numlength(long long int n);
-int	printchr(char c);
-int	printstr(char *str);
-int	printpointer(unsigned long long ptr);
 
 #endif
