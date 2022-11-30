@@ -6,7 +6,7 @@
 #    By: luaraujo <luaraujo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 15:22:54 by luaraujo          #+#    #+#              #
-#    Updated: 2022/11/29 17:31:12 by luaraujo         ###   ########.fr        #
+#    Updated: 2022/11/30 18:09:23 by luaraujo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,23 +23,23 @@ RM				=	rm -f
 
 CFLAGS			=	-Wall -Wextra -Werror
 
-LIBFT			=	./../libft/libft.a
+LIBFT			=	../libft
 
-INCLUDES		=	-I./includes
+INCLUDES		=	-I $(LIBFT) -L $(LIBFT) -l libft
 
 all:			$(NAME)
 $(NAME):		$(OBJS)
-						$(MAKE) -C ./../libft
-						cp ../libft/libft.a $(NAME)
+						$(MAKE) bonus -C ./$(LIBFT)
+						cp $(LIBFT)/libft.a $(NAME)
 						$(CC) $(CFLAGS) $(INCLUDES) $(SRCS)
 						ar rcs $(NAME) $(OBJS)
 
 clean:
-						$(MAKE) clean -C ./../libft
+						$(MAKE) clean -C ./$(LIBFT)
 						$(RM) $(OBJS)
 
 fclean:			clean
-						$(MAKE) fclean -C ./../libft
+						$(MAKE) fclean -C ./$(LIBFT)
 						$(RM) $(NAME)
 
 re:				fclean all

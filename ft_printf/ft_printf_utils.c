@@ -39,7 +39,7 @@ int	printundec(unsigned int n)
 	return (length);
 }
 
-int	printhex(unsigned int n, char type)
+int	printhex(unsigned long n, char type)
 {
 	char			*hex;
 	int				length;
@@ -47,6 +47,11 @@ int	printhex(unsigned int n, char type)
 	int				i;
 
 	length = numlength(n);
+	if (n == 0)
+	{
+		ft_putchar_fd('0', 1);
+		return (length);
+	}
 	hex = malloc(sizeof(char) * (length + 1));
 	i = 0;
 	while (n != 0)

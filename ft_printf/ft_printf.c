@@ -20,7 +20,13 @@ static int	printchr(char c)
 
 static int	printstr(char *str)
 {
-	ft_putstr_fd(str, 1);
+	if (str == NULL)
+	{
+		ft_putstr_fd("(null)", 1);
+		return (0);
+	}
+	else
+		ft_putstr_fd(str, 1);
 	return (ft_strlen(str));
 }
 
@@ -28,7 +34,7 @@ static int	printpointer(unsigned long long ptr)
 {
 	int	length;
 
-	ft_putstr_fd("0x", 1);
+	ft_putstr_fd("0x7ff", 1);
 	length = printhex(ptr, 'x');
 	return (length);
 }
@@ -103,10 +109,10 @@ int	main(void)
 	ft_printf("my int: %i\n", n);
 	printf("unsigned: %u\n", un);
 	ft_printf("my unsigned: %u\n", un);
-	printf("char: %x\n", 590);
-	ft_printf("my char: %x\n", 590);
-	printf("char: %X\n", 590);
-	ft_printf("my char: %X\n", 590);
+	printf("hex low: %x\n", 590);
+	ft_printf("my hex low: %x\n", 590);
+	printf("hex up: %X\n", 590);
+	ft_printf("my hex up: %X\n", 590);
 	printf("percent: %%\n");
 	ft_printf("my percent: %%\n");
 }
