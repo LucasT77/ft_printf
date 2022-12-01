@@ -6,7 +6,7 @@
 /*   By: luaraujo <luaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 14:35:33 by luaraujo          #+#    #+#             */
-/*   Updated: 2022/12/01 16:59:04 by luaraujo         ###   ########.fr       */
+/*   Updated: 2022/12/01 18:48:44 by luaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	printstr(char *str)
 	if (str == NULL)
 	{
 		ft_putstr_fd("(null)", 1);
-		return (0);
+		return (6);
 	}
 	else
 		ft_putstr_fd(str, 1);

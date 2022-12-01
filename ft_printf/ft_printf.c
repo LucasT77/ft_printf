@@ -68,7 +68,7 @@ int	main(void)
 
 	n = -435;
 	un = 56707;
-	str = "Hello World";
+	str = NULL;
 	c = 'L';
 
 	printf("%i\n", printf("char: %c\n", c));
@@ -79,8 +79,8 @@ int	main(void)
 	ft_printf("ft: %i\n", ft_printf("string: %s\n", str));
     
 	ft_printf("\n");
-	printf("%i\n", printf("pointer: %p\n", (void *)&n));
-	ft_printf("ft: %i\n", ft_printf("pointer: %p\n", (void *)&n));
+	printf("%i\n", printf("pointer: %p\n", (void *)0));
+	ft_printf("ft: %i\n", ft_printf("pointer: %p\n", (void *)0));
     
 	ft_printf("\n");
 	printf("%i\n", printf("decimal: %d\n", n));
