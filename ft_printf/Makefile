@@ -6,14 +6,18 @@
 #    By: luaraujo <luaraujo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 15:22:54 by luaraujo          #+#    #+#              #
-#    Updated: 2022/11/30 18:09:23 by luaraujo         ###   ########.fr        #
+#    Updated: 2022/12/01 15:00:52 by luaraujo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME 			=	libftprintf.a
 
-SRCS 			=	ft_printf.c ft_printf_utils.c 
+SRCS 			=	ft_printf.c \
+					printstr.c  printundec.c \
+					printhex.c  printpointer.c \
+					numlength.c  printchr.c  printdec.c \
+					ft_putchar_fd.c  ft_putnbr_fd.c  ft_putstr_fd.c  ft_strlen.c \
 
 OBJS			=	$(SRCS:.c=.o)
 
@@ -23,23 +27,15 @@ RM				=	rm -f
 
 CFLAGS			=	-Wall -Wextra -Werror
 
-LIBFT			=	../libft
-
-INCLUDES		=	-I $(LIBFT) -L $(LIBFT) -l libft
-
 all:			$(NAME)
 $(NAME):		$(OBJS)
-						$(MAKE) bonus -C ./$(LIBFT)
-						cp $(LIBFT)/libft.a $(NAME)
-						$(CC) $(CFLAGS) $(INCLUDES) $(SRCS)
+						$(CC) $(CFLAGS) $(SRCS)
 						ar rcs $(NAME) $(OBJS)
 
 clean:
-						$(MAKE) clean -C ./$(LIBFT)
 						$(RM) $(OBJS)
 
 fclean:			clean
-						$(MAKE) fclean -C ./$(LIBFT)
 						$(RM) $(NAME)
 
 re:				fclean all

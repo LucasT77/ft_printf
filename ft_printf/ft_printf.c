@@ -12,33 +12,6 @@
 
 #include "ft_printf.h"
 
-static int	printchr(char c)
-{
-	ft_putchar_fd(c, 1);
-	return (1);
-}
-
-static int	printstr(char *str)
-{
-	if (str == NULL)
-	{
-		ft_putstr_fd("(null)", 1);
-		return (0);
-	}
-	else
-		ft_putstr_fd(str, 1);
-	return (ft_strlen(str));
-}
-
-static int	printpointer(unsigned long long ptr)
-{
-	int	length;
-
-	ft_putstr_fd("0x7ff", 1);
-	length = printhex(ptr, 'x');
-	return (length);
-}
-
 static int	checktype(va_list args, char type)
 {
 	int	length;
@@ -85,7 +58,7 @@ int	ft_printf(const char *str, ...)
 	return (length);
 }
 
-
+/*
 int	main(void)
 {
 	int				n;
@@ -93,26 +66,44 @@ int	main(void)
 	char			*str;
 	unsigned int	un;
 
-	n = -10;
-	un = 9;
-	str = "Hello";
+	n = -435;
+	un = 56707;
+	str = "Hello World";
 	c = 'L';
-	printf("char: %c\n", c);
-	ft_printf("my char: %c\n", c);
-	printf("string: %s\n", str);
-	ft_printf("my string: %s\n", str);
-	printf("pointer: %p\n", (void *)&n);
-	ft_printf("my pointer: %p\n", (void *)&n);
-	printf("decimal: %d\n", n);
-	ft_printf("my decimal: %d\n", n);
-	printf("int: %i\n", n);
-	ft_printf("my int: %i\n", n);
-	printf("unsigned: %u\n", un);
-	ft_printf("my unsigned: %u\n", un);
-	printf("hex low: %x\n", 590);
-	ft_printf("my hex low: %x\n", 590);
-	printf("hex up: %X\n", 590);
-	ft_printf("my hex up: %X\n", 590);
-	printf("percent: %%\n");
-	ft_printf("my percent: %%\n");
+
+	printf("%i\n", printf("char: %c\n", c));
+	ft_printf("ft: %i\n", ft_printf("char: %c\n", c));
+    
+	ft_printf("\n");
+	printf("%i\n", printf("string: %s\n", str));
+	ft_printf("ft: %i\n", ft_printf("string: %s\n", str));
+    
+	ft_printf("\n");
+	printf("%i\n", printf("pointer: %p\n", (void *)&n));
+	ft_printf("ft: %i\n", ft_printf("pointer: %p\n", (void *)&n));
+    
+	ft_printf("\n");
+	printf("%i\n", printf("decimal: %d\n", n));
+	ft_printf("ft: %i\n", ft_printf("decimal: %d\n", n));
+    
+	ft_printf("\n");
+	printf("%i\n", printf("int: %i\n", n));
+	ft_printf("ft: %i\n", ft_printf("int: %i\n", n));
+    
+	ft_printf("\n");
+	printf("%i\n", printf("unsigned: %u\n", un));
+	ft_printf("ft: %i\n", ft_printf("unsigned: %u\n", un));
+    
+	ft_printf("\n");
+	printf("%i\n", printf("hex low: %x\n", un));
+	ft_printf("ft: %i\n", ft_printf("hex low: %x\n", un));
+    
+	ft_printf("\n");
+	printf("%i\n", printf("hex up: %X\n", un));
+	ft_printf("ft: %i\n", ft_printf("hex up: %X\n", un));
+    
+	ft_printf("\n");
+	printf("%i\n", printf("percent: %%\n"));
+	ft_printf("ft: %i\n", ft_printf("percent: %%\n"));
 }
+*/
