@@ -6,7 +6,7 @@
 #    By: luaraujo <luaraujo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 15:22:54 by luaraujo          #+#    #+#              #
-#    Updated: 2022/12/01 17:27:27 by luaraujo         ###   ########.fr        #
+#    Updated: 2022/12/02 12:49:22 by luaraujo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,6 @@ CFLAGS			=	-Wall -Wextra -Werror
 
 all:			$(NAME)
 $(NAME):		$(OBJS)
-						$(CC) $(CFLAGS) $(SRCS)
 						ar rcs $(NAME) $(OBJS)
 
 clean:

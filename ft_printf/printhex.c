@@ -6,7 +6,7 @@
 /*   By: luaraujo <luaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 14:34:15 by luaraujo          #+#    #+#             */
-/*   Updated: 2022/12/01 17:15:27 by luaraujo         ###   ########.fr       */
+/*   Updated: 2022/12/02 12:56:46 by luaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	printhex(unsigned long n, char type)
 		return (i);
 	}
 	hex = hex_aux(n, type);
-	i = ft_strlen(hex);
+	i = ft_strlen(hex) - 1;
 	while (i >= 0)
 		ft_putchar_fd(hex[i--], 1);
 	i = ft_strlen(hex);
