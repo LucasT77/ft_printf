@@ -6,7 +6,7 @@
 /*   By: luaraujo <luaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 16:44:09 by luaraujo          #+#    #+#             */
-/*   Updated: 2022/12/01 15:00:26 by luaraujo         ###   ########.fr       */
+/*   Updated: 2022/12/02 15:10:18 by luaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@
 int		ft_printf(const char *str, ...);
 int		printdec(int n);
 int		printundec(unsigned int n);
-int		printhex(unsigned long n, char type);
+int		printhex(unsigned long long n, char type);
 int		numlength(long long int n);
+int		numlength_unsigned(unsigned long long n);
 int		printchr(char c);
 int		printstr(char *str);
 int		printpointer(unsigned long long ptr);

@@ -6,19 +6,19 @@
 /*   By: luaraujo <luaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 14:34:15 by luaraujo          #+#    #+#             */
-/*   Updated: 2022/12/02 12:56:46 by luaraujo         ###   ########.fr       */
+/*   Updated: 2022/12/02 15:11:03 by luaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static char	*hex_aux(unsigned long n, char type)
+static char	*hex_aux(unsigned long long n, char type)
 {
 	char			*hex;
 	unsigned int	aux;
 	int				i;
 
-	i = numlength(n);
+	i = numlength_unsigned(n);
 	hex = malloc(sizeof(char) * (i + 1));
 	i = 0;
 	while (n != 0)
@@ -36,12 +36,12 @@ static char	*hex_aux(unsigned long n, char type)
 	return (hex);
 }
 
-int	printhex(unsigned long n, char type)
+int	printhex(unsigned long long n, char type)
 {
 	char			*hex;
 	int				i;
 
-	i = numlength(n);
+	i = numlength_unsigned(n);
 	if (n == 0)
 	{
 		ft_putchar_fd('0', 1);
@@ -49,9 +49,13 @@ int	printhex(unsigned long n, char type)
 	}
 	hex = hex_aux(n, type);
 	i = ft_strlen(hex) - 1;
+	while (hex[i + 1])
+		i++;
 	while (i >= 0)
 		ft_putchar_fd(hex[i--], 1);
 	i = ft_strlen(hex);
+	while (hex[i])
+		i++;
 	free(hex);
 	return (i);
 }
